@@ -77,7 +77,7 @@ exports.login = async(req,res) => {
         const token = await jwt.sign(
             { 
                 id: mail._id,
-                role: user.role
+                role: mail.role
             },
             process.env.JWT_SECRET,
             {
