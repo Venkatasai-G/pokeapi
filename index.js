@@ -17,6 +17,6 @@ app.get('/',(req,res)=>{
     res.send('service is running')
 })
 
-app.listen(5001,()=>{
+app.listen(process.env.PORT,()=>{
     console.log('server is started')
 })
