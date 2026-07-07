@@ -112,7 +112,13 @@ exports.createPokemon = async(req,res)=>{
     try{
 
         const { pokeId, name, types, height, abilities } = req.body
-        if(pokeId>0 || !name || !types || height>0 || !abilities ){
+        if(!pokeId || !name || !types || !height || !abilities ){
+
+            if(pokeID<1 || height<1){
+                return res.status(400).json({
+                    message: "enter the positive value"
+                })
+            }
             return res.status(400).json({
                 message: "please fill all the fields"
             })

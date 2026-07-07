@@ -25,6 +25,12 @@ exports.register = async(req,res) => {
             })
         }
 
+        if(len(req.body.password)<8){
+            return res.status(400).json({
+                message: "password length must be greater than 8 characters"
+            })
+        }
+        
         const hash = await bcrypt.hash(req.body.password,10)
 
         const user = await User.create({
@@ -77,7 +83,7 @@ exports.login = async(req,res) => {
         const token = await jwt.sign(
             { 
                 id: mail._id,
-                role: user.role
+                role: mail.role
             },
             process.env.JWT_SECRET,
             {

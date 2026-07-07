@@ -20,6 +20,7 @@ const auth = async(req,res,next) => {
                 message: "invalid token/ session expired"
             })
         }
+        
         req.user = decode.id
 
         next()
