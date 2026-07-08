@@ -37,10 +37,10 @@ exports.getallPokemon = async(req,res)=>{
         if (name) {
             query = query.find({ 
                 name:{
-                $regex: name,
-                $options: 'i'
-            }
-             });
+                    $regex: name,
+                    $options: 'i'
+                }
+            });
         }
 
         if (type) {

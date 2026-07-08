@@ -25,7 +25,7 @@ exports.register = async(req,res) => {
             })
         }
 
-        if(len(req.body.password)<8){
+        if( req.body.password.length < 8){
             return res.status(400).json({
                 message: "password length must be greater than 8 characters"
             })

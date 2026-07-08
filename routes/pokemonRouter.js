@@ -6,10 +6,10 @@ const auth = require('../middleware/authcheck')
 const usersauth = require('../middleware/userauth')
 const userauth = require('../middleware/userauth')
 
-router.get('/', getallPokemon)
-router.patch('/:name', auth, userauth, upload.single('image'), updatePokemon)
-router.delete('/:name', auth, userauth, deletePokemon)
+router.get('/search', getallPokemon)
+router.patch('/upload/:name', auth, userauth, upload.single('image'), updatePokemon)
+router.delete('/delete/:name', auth, userauth, deletePokemon)
 router.get('/:id', getPokemonbyId)
-router.post('/', auth, userauth, upload.single('image'), createPokemon)
+router.post('/create', auth, userauth, upload.single('image'), createPokemon)
 
 module.exports = router
